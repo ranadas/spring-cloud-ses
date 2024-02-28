@@ -6,5 +6,9 @@ cloud:
     stack:
       auto: false
     credentials:
-      access-key: ************
-      secret-key: ***********************************
+      access-key: ${AWS_KEY}
+      secret-key: ${AWS_SECRET}
+
+server:
+  servlet:
+    context-path: /email

@@ -2,15 +2,17 @@ package com.stackabuse.springcloudawsses.controller;
 
 import com.stackabuse.springcloudawsses.dto.EmailDetails;
 import com.stackabuse.springcloudawsses.services.EmailService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.mail.SimpleMailMessage;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequiredArgsConstructor
 public class EmailController {
 
-    @Autowired
-    private EmailService emailService;
+    private final EmailService emailService;
 
     @PostMapping("/sendEmail")
     public String sendMessage(@RequestBody EmailDetails emailDetails) {
